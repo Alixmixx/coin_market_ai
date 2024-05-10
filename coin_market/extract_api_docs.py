@@ -27,16 +27,22 @@ def extract_documentation(url):
         # Load the page with Selenium
         driver.get(url)
         WebDriverWait(driver, 10).until(
-            EC.presence_of_element_located((By.CLASS_NAME, "api-info-wrapper"))
+            EC.presence_of_element_located((By.CLASS_NAME, "api-content"))
         )
 
         # Extract the fully rendered page's content
         page_source = driver.page_source
         soup = BeautifulSoup(page_source, 'html.parser')
 
+        # Find the 'api-info-wrapper' section
+        api_info = soup.find(class_="api-content")
+        if not api_info:
+            print(f"Could not find 'api-content' in {url}")
+            return ""
+
         # Extract text while preserving headings and sub-sections
         doc_content = []
-        for tag in soup.find_all(['h1', 'h2', 'h3', 'h4', 'p', 'ul', 'ol', 'li']):
+        for tag in api_info.find_all(['h1', 'h2', 'h3', 'h4', 'p', 'ul', 'ol', 'li']):
             if tag.name in ['h1', 'h2', 'h3', 'h4']:
                 doc_content.append('\n\n' + tag.text.strip().upper() + '\n')
             else:
