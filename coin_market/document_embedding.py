@@ -51,9 +51,7 @@ def save_chunks_and_embeddings(chunk_list, embeddings, chunks_path="chunks.json"
 
 def generate_embedding(api_doc_dir = API_DOC_DIR):
     document = load_documents(api_doc_dir)
-    print("Documents loaded:", document)
     chunk_list = text_splitter(document)
-    print("Chunk list:", chunk_list)
     embeddings = generate_embeddings(chunk_list)
 
     save_chunks_and_embeddings(chunk_list, embeddings)

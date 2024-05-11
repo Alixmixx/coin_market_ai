@@ -1,7 +1,7 @@
 import os
 import json
 import numpy as np
-from langchain_openai import OpenAIModel, OpenAIEmbeddings
+from langchain_openai import OpenAI, OpenAIEmbeddings
 import dotenv
 
 # Function to load chunks from a JSON file
@@ -17,6 +17,7 @@ def load_embeddings(filename):
 # Load your model here, for example:
 dotenv.load_dotenv()
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+MAIN_PATH = os.getenv("MAIN_PATH")
 embeddings_model = OpenAIEmbeddings(api_key=OPENAI_API_KEY)
 
 def find_most_relevant_docs(query, document_embeddings, documents, top_n=3):
@@ -34,13 +35,13 @@ def generate_response(query, context_documents):
 # Example usage:
 if __name__ == '__main__':
     # Load data
-    chunks_path = 'chunks.json'
-    embeddings_path = 'embeddings.npy'
+    chunks_path = MAIN_PATH + '/data/' + 'chunks.json'
+    embeddings_path = MAIN_PATH + '/data/' + 'embeddings.npy'
     loaded_texts = load_chunks(chunks_path)
     document_embeddings = load_embeddings(embeddings_path)
 
-    query = "How do I fetch the latest cryptocurrency prices?"
+    query = "How do I fetch the airdrops?"
     context_docs = find_most_relevant_docs(query, document_embeddings, loaded_texts)
-    print("Most relevant documents:", context_docs)
-    response = generate_response(query, context_docs)
-    print("Generated Response:", response)
+    print(context_docs)
+    #response = generate_response(query, context_docs)
+    #print("Generated Response:", response)
