@@ -1,0 +1,10 @@
+[
+    "BLOCKCHAIN\n\nAPI endpoints for blockchain data. This category currently includes 1 endpoint:\n\n/v1/blockchain/statistics/latest - Latest statistics\n/v1/blockchain/statistics/latest - Latest statistics\n/v1/blockchain/statistics/latest - Latest statistics\n\n\nCONTENT",
+    "CONTENT\n\nAPI endpoints for content data. This category currently includes 4 endpoints:",
+    "/v1/content/latest - Content latest\n/v1/content/posts/top - Content top posts\n/v1/content/posts/latest - Content latest posts\n/v1/content/posts/comments - Content post comments\n/v1/content/latest - Content latest\n/v1/content/posts/top - Content top posts",
+    "/v1/content/posts/top - Content top posts\n/v1/content/posts/latest - Content latest posts\n/v1/content/posts/comments - Content post comments\n/v1/content/latest - Content latest\n/v1/content/posts/top - Content top posts\n/v1/content/posts/latest - Content latest posts",
+    "/v1/content/posts/latest - Content latest posts\n/v1/content/posts/comments - Content post comments",
+    "COMMUNITY\n\nAPI endpoints for community data. This category currently includes 2 endpoints:",
+    "/v1/community/trending/topic - Community Trending Topics\n/v1/community/trending/token - Community Trending Tokens\n/v1/community/trending/topic - Community Trending Topics\n/v1/community/trending/token - Community Trending Tokens\n/v1/community/trending/topic - Community Trending Topics",
+    "/v1/community/trending/token - Community Trending Tokens"
+]
