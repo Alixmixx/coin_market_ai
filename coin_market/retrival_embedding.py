@@ -33,15 +33,14 @@ def generate_response(query, context_documents):
     return response
 
 # Example usage:
-if __name__ == '__main__':
+def retrieve_similar_chunks(query = "How do I fetch the airdrops?"):
     # Load data
     chunks_path = MAIN_PATH + '/data/' + 'chunks.json'
     embeddings_path = MAIN_PATH + '/data/' + 'embeddings.npy'
     loaded_texts = load_chunks(chunks_path)
     document_embeddings = load_embeddings(embeddings_path)
 
-    query = "How do I fetch the airdrops?"
     context_docs = find_most_relevant_docs(query, document_embeddings, loaded_texts)
     print(context_docs)
-    #response = generate_response(query, context_docs)
-    #print("Generated Response:", response)
+    return context_docs
+

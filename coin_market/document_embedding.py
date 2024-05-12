@@ -27,7 +27,7 @@ def load_documents(api_doc_dir):
 
 
 def text_splitter(text_content):
-    splitter = RecursiveCharacterTextSplitter(chunk_size=300, chunk_overlap=50,
+    splitter = RecursiveCharacterTextSplitter(chunk_size=400, chunk_overlap=50,
                                               length_function=len, is_separator_regex=False)
     chunk_list = splitter.split_text(text_content)
     return chunk_list
